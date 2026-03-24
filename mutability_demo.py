@@ -2,7 +2,7 @@ from os import system
 
 def curve_grades(grades: dict) -> dict:
     # Intention: create a NEW dictionary with +5 points
-    curved = grades   # ❌ BUG: this variable still references the original gradebook!
+    curved = grades.copy()   # ❌ BUG: this variable still references the original gradebook!
 
     for student in curved:
         curved[student] += 5

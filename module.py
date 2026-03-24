@@ -26,8 +26,12 @@ is NOT changed.
 #   lst -> [1, 2]
 #
 def add_item(lst: list, item) -> list:
-    lst.append(item)   # BUG: mutates original list
-    return lst
+    list1 = lst
+    list2 = list1.copy()
+
+    list2.append(item)   # BUG: mutates original list
+
+    return list2
 
 
 # -------------------------------------------------
@@ -45,8 +49,11 @@ def add_item(lst: list, item) -> list:
 #   lst -> [1, 2, 3]
 #
 def remove_item(lst: list, item) -> list:
-    lst.remove(item)   # BUG
-    return lst
+    list1 = lst
+    answer = list1.copy()
+    answer.remove(item)   # BUG
+
+    return answer
 
 
 # -------------------------------------------------
@@ -64,8 +71,10 @@ def remove_item(lst: list, item) -> list:
 #   scores -> {"Alice": 90}
 #
 def update_score(scores: dict, name: str, new_score: int) -> dict:
-    scores[name] = new_score   # BUG
-    return scores
+    score1 = scores
+    answer = score1.copy()
+    score1[name] = answer   # BUG
+    return score1
 
 
 # -------------------------------------------------
